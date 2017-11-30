@@ -4,10 +4,11 @@
 import sys
 import numpy as np
 
-mid_result = []         #max,min,median,std
+        #max,min,median,std
 data_list =[]
 key = None
 pre_result =[]
+mid_result =[]
 result =[]
 final_result=[]
 
@@ -32,14 +33,18 @@ for line in sys.stdin:
 
 for item in mid_result:
     # print type(item[1])
-    result.append(max(item[1]))
-    result.append(min(item[1]))
-    result.append(np.median(item[1]))
-    result.append(np.std(item[1]))
+    data_list.append(max(item[1]))
+    data_list.append(min(item[1]))
+    data_list.append(np.median(item[1]))
+    data_list.append(np.std(item[1]))
     # print "result is :--------", result
-    final_result.append(item[0])
+    result.append(item[0])
+    result.append(data_list)
+
     final_result.append(result)
-    result = []
+
+    data_list = []
+    result =[]
     # print "result is :--------", result
 print final_result
 

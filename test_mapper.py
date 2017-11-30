@@ -26,6 +26,5 @@ def main(separator='\t'):
     for key_value in read_csv():
         print '%s\t%s' % (key_value[0],key_value[1])
 
-
 if __name__ == "__main__":
     main()
