@@ -28,12 +28,16 @@ for line in sys.stdin:
         key = data[0]
     else:
         key_data.append(float(data[1]))
+    # print "pre_ ",pre_result
+# print "mid_result is ",mid_result           #need change to min max...
 
 for item in mid_result:
+    # print type(item[1])
     data_list.append(max(item[1]))
     data_list.append(min(item[1]))
     data_list.append(np.median(item[1]))
     data_list.append(np.std(item[1]))
+    # print "result is :--------", result
     result.append(item[0])
     result.append(data_list)
 
@@ -41,6 +45,7 @@ for item in mid_result:
 
     data_list = []
     result =[]
+    # print "result is :--------", result
 print final_result
 
 

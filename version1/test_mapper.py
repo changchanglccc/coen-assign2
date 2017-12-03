@@ -37,6 +37,7 @@ def read_input(file):
     for line in file:
         # split the line into words
         data = line.split(',')
+        # print "data: ", data
         if flag > 0:
             key_value_list.append(map(data))
         flag = flag + 1
@@ -45,9 +46,9 @@ def read_input(file):
 def map(list):
     mylist = []
     pre_key = list[0]+list[2]
-    key = pre_key[:-6]     # use locationyear as key
+    key = pre_key[:-6]      # use locationyear as key
     mylist.append(key)
-    mylist.append(list[7])      #list[7] is the value
+    mylist.append(list[7])  #list[1] is the value
     return mylist
 
 
