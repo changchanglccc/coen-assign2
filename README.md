@@ -30,3 +30,7 @@ hdfs dfs -rm -r -f /output
 logs are recorded in mapper.log and reducer.log , which under this path:
 /usr/local/Cellar/hadoop/2.8.2
 
+add useful link:
+1. http://icejoywoo.github.io/2015/09/28/introduction-to-hadoop-streaming.html
+2. https://python.freelycode.com/contribution/detail/307
+3. http://blog.csdn.net/chosen0ne/article/details/7319306
