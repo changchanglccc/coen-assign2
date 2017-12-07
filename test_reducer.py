@@ -4,7 +4,23 @@
 import sys
 import numpy as np
 
-        #max,min,median,std
+
+import logging
+import logging.handlers
+
+LOG_FILE = 'reducer.log'
+
+handler = logging.handlers.RotatingFileHandler(LOG_FILE, maxBytes=1024 * 1024, backupCount=5)
+fmt = '%(msecs)d - %(filename)s:%(lineno)s - %(name)s - %(message)s'
+
+formatter = logging.Formatter(fmt)
+handler.setFormatter(formatter)
+
+logger = logging.getLogger('reducer')
+logger.addHandler(handler)
+logger.setLevel(logging.DEBUG)
+
+
 data_list =[]
 key = None
 pre_result =[]
@@ -14,6 +30,7 @@ final_result=[]
 
 key_data=[] #[key,[xx,xx]]
 
+logger.info('first info message')
 for line in sys.stdin:
     # line = line.strip()
     data = line.strip().split('\t')
@@ -42,5 +59,6 @@ for item in mid_result:
     data_list = []
     result =[]
 print final_result
+logger.debug('first debug message')
 
 

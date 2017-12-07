@@ -30,6 +30,22 @@
 #     main()
 
 import sys
+import time
+
+import logging
+import logging.handlers
+
+LOG_FILE = 'mapper.log'
+
+handler = logging.handlers.RotatingFileHandler(LOG_FILE, maxBytes=1024 * 1024, backupCount=5)
+fmt = '%(msecs)d - %(filename)s:%(lineno)s - %(name)s - %(message)s'
+
+formatter = logging.Formatter(fmt)
+handler.setFormatter(formatter)
+
+logger = logging.getLogger('mapper')
+logger.addHandler(handler)
+logger.setLevel(logging.DEBUG)
 
 def read_input(file):
     key_value_list = []
@@ -50,7 +66,6 @@ def map(list):
     mylist.append(list[7])      #list[7] is the value
     return mylist
 
-
 def main(separator='\t'):
     # list =read_input(sys.stdin)
     for key_value in read_input(sys.stdin):
@@ -58,4 +73,8 @@ def main(separator='\t'):
             print '%s\t%s' % (item[0], item[1])
 
 if __name__ == "__main__":
+    logger.info('first info message')
     main()
+    logger.debug('first debug message')
+
+
